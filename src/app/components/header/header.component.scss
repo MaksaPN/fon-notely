@@ -1,0 +1,21 @@
+@import '../../../assets/styles/variables';
+
+mat-toolbar {
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+  color: $white;
+
+  &:hover {
+    color: darken($white, 10%);
+  }
+}
