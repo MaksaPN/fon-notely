@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "title": "First note",
+    "content": "First note's content"
+  },
+  {
+    "id": 2,
+    "title": "Second note",
+    "content": "Second note's content"
+  },
+  {
+    "id": 3,
+    "title": "Third note",
+    "content": "Third note's content"
+  },
+  {
+    "id": 4,
+    "title": "Fourth note",
+    "content": "Fourth note's content"
+  },
+  {
+    "id": 5,
+    "title": "Fifth note",
+    "content": "Fifth note's content"
+  },
+  {
+    "id": 6,
+    "title": "Shopping list",
+    "listItems": [
+      {
+        "completed": false,
+        "content": "Buy eggs"
+      },
+      {
+        "completed": true,
+        "content": "Buy drinks"
+      },
+      {
+        "completed": false,
+        "content": "Buy milk"
+      }
+    ]
+  }
+]
