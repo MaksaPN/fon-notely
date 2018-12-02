@@ -35,3 +35,7 @@ a {
     color: $gray-hover;
   }
 }
+
+mat-card-header .mat-card-header-text {
+  margin: 0;
+}
