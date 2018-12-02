@@ -3,10 +3,23 @@
     <mat-card-title>{{ note.title }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    {{ note.content }}
+    <div *ngIf="note.type === 'simple'">
+      {{ note.content }}
+    </div>
+
+    <div *ngIf="note.type === 'list'">
+      <div *ngFor="let listItem of note.listItems">
+        <mat-checkbox class="example-margin" [(ngModel)]="listItem.completed">{{ listItem.content }}</mat-checkbox>
+      </div>
+    </div>
+
+    <div class="dates">
+      <small>Created: {{ note.dateCreated }}</small>
+      <small *ngIf="note.dateModified">Updated: {{ note.dateModified }}</small>
+    </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>Edit</button>
-    <button mat-button>Delete</button>
+    <button mat-button (click)="openNoteDetails()">Edit</button>
+    <button mat-button (click)="deleteNote()">Delete</button>
   </mat-card-actions>
 </mat-card>
