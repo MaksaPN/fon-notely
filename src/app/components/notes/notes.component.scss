@@ -1,6 +1,29 @@
+@import '../../../assets/styles/variables';
+
 .notes-wrapper {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   padding: 40px;
+}
+
+.new-note-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.notes-background-overlay {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+  background-color: transparentize($black, 0.5);
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    height: 100vh;
+  }
 }

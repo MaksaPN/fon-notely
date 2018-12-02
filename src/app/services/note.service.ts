@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Note } from '../models/note';
@@ -9,6 +9,9 @@ import { Note } from '../models/note';
   providedIn: 'root'
 })
 export class NoteService {
+
+  noteCreated = new Subject<Note>();
+  noteUpdated = new Subject<Note>();
 
   constructor(private http: HttpClient) { }
 

@@ -6,4 +6,14 @@
   </fon-note>
 </div>
 
-<router-outlet name="note"></router-outlet>
+<button class="new-note-button" mat-fab color="primary" (click)="addNewNote()">
+  <i class="material-icons" title="New Note">add</i>
+</button>
+
+<div class="notes-background-overlay" [class.visible]="showBackgroundOverlay"></div>
+
+<router-outlet
+  name="note"
+  (activate)="noteDetailsActivated($event)"
+  (deactivate)="noteDetailsDeactivated()">
+</router-outlet>

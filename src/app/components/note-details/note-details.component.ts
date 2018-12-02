@@ -23,7 +23,19 @@ export class NoteDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
-      if (params.noteId) {
+      if (!params.noteId) {
+        return;
+      }
+
+      if (params.noteId === 'new') {
+        this.note = {
+          content: '',
+          type: 'simple',
+          listItems: []
+        } as Note;
+      }
+
+      if (params.noteId !== 'new') {
         this.noteService.getNote(+params.noteId).subscribe(note => {
           this.note = note;
         });
@@ -32,7 +44,12 @@ export class NoteDetailsComponent implements OnInit {
   }
 
   save() {
-
+    if (this.note.id) {
+      this.noteService.noteUpdated.next(this.note);
+    } else {
+      this.noteService.noteCreated.next(this.note);
+    }
+    this.close();
   }
 
   addListItem() {
@@ -46,6 +63,10 @@ export class NoteDetailsComponent implements OnInit {
   }
 
   cancel() {
+    this.close();
+  }
+
+  close() {
     this.router.navigate(['/notes']);
   }
 }

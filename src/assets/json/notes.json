@@ -5,7 +5,7 @@
     "type": "simple",
     "content": "First note's content",
     "listItems": [],
-    "dateCreated": "2018-11-30T11:15:00",
+    "dateCreated": "2018-11-30T11:15:12.833Z",
     "dateModified": null
   },
   {
@@ -14,7 +14,7 @@
     "type": "simple",
     "content": "Second note's content",
     "listItems": [],
-    "dateCreated": "2018-11-28T04:27:00",
+    "dateCreated": "2018-11-28T04:27:24.931Z",
     "dateModified": null
   },
   {
@@ -23,8 +23,8 @@
     "type": "simple",
     "content": "Third note's content",
     "listItems": [],
-    "dateCreated": "2018-11-29T11:15:00",
-    "dateModified": "2018-11-30T22:15:00"
+    "dateCreated": "2018-11-29T11:15:10.430Z",
+    "dateModified": "2018-11-30T22:15:44.929Z"
   },
   {
     "id": 4,
@@ -32,7 +32,7 @@
     "type": "simple",
     "content": "Fourth note's content",
     "listItems": [],
-    "dateCreated": "2018-11-21T11:15:00",
+    "dateCreated": "2018-11-21T12:19:12.985Z",
     "dateModified": null
   },
   {
@@ -41,8 +41,8 @@
     "type": "simple",
     "content": "Fifth note's content",
     "listItems": [],
-    "dateCreated": "2018-11-29T14:15:00",
-    "dateModified": "2018-11-29T14:17:00"
+    "dateCreated": "2018-11-29T14:15:59.851Z",
+    "dateModified": "2018-11-29T14:17:51.681Z"
   },
   {
     "id": 6,
@@ -63,7 +63,7 @@
         "content": "Buy milk"
       }
     ],
-    "dateCreated": "2018-12-01T08:15:00",
+    "dateCreated": "2018-12-01T08:15:18.423Z",
     "dateModified": null
   }
 ]

@@ -23,7 +23,9 @@ export class NoteComponent implements OnInit {
   }
 
   deleteNote() {
-    this.deleteClicked.emit(this.note);
+    if (confirm('Are you sure you want to delete this note?')) {
+      this.deleteClicked.emit(this.note);
+    }
   }
 
 }
