@@ -1,7 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatToolbarModule } from '@angular/material';
+import {
+  MatButtonModule, MatCardModule, MatCheckboxModule,
+  MatFormFieldModule, MatInputModule, MatRadioModule, MatToolbarModule
+} from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -10,6 +13,7 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './components/about/about.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { HeaderComponent } from './components/header/header.component';
+import { NoteDetailsComponent } from './components/note-details/note-details.component';
 import { NoteComponent } from './components/note/note.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { SearchComponent } from './components/search/search.component';
@@ -25,7 +29,9 @@ import { SearchComponent } from './components/search/search.component';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatRadioModule
   ],
   declarations: [
     AppComponent,
@@ -34,7 +40,8 @@ import { SearchComponent } from './components/search/search.component';
     FiltersComponent,
     SearchComponent,
     HeaderComponent,
-    AboutComponent
+    AboutComponent,
+    NoteDetailsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
