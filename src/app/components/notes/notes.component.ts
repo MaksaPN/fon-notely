@@ -60,6 +60,7 @@ export class NotesComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.noteCreatedSubscription.unsubscribe();
     this.noteUpdatedSubscription.unsubscribe();
+    this.searchMadeSubscription.unsubscribe();
   }
 
   onEditClicked(note: Note) {
