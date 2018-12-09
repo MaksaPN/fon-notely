@@ -1,1 +1,11 @@
-<div>Filters</div>
+<mat-form-field>
+  <input matInput [matDatepicker]="dateFromDatepicker" placeholder="Choose date from" (dateChange)="onDateFromChange($event)">
+  <mat-datepicker-toggle [for]="dateFromDatepicker"></mat-datepicker-toggle>
+  <mat-datepicker #dateFromDatepicker></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput [matDatepicker]="dateToDatepicker" placeholder="Choose date to" (dateChange)="onDateToChange($event)">
+  <mat-datepicker-toggle [for]="dateToDatepicker"></mat-datepicker-toggle>
+  <mat-datepicker #dateToDatepicker></mat-datepicker>
+</mat-form-field>

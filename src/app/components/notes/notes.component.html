@@ -1,3 +1,5 @@
+<fon-filters (filterUpdated)="onFilterUpdated($event)"></fon-filters>
+
 <div class="notes-wrapper">
   <fon-note
     *ngFor="let note of filteredNotes" [note]="note"

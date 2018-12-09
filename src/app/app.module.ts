@@ -2,8 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  MatButtonModule, MatCardModule, MatCheckboxModule,
-  MatFormFieldModule, MatInputModule, MatRadioModule, MatToolbarModule
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatFormFieldModule,
+  MatInputModule, MatRadioModule, MatToolbarModule, MatDatepickerModule, MatNativeDateModule
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,7 +31,9 @@ import { SearchComponent } from './components/search/search.component';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   declarations: [
     AppComponent,
