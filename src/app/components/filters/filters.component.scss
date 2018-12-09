@@ -11,9 +11,14 @@ mat-form-field {
   &:last-of-type {
     margin-right: 0;
   }
-
 }
 
 mat-form-field ::ng-deep .mat-form-field-infix {
   display: flex;
+}
+
+mat-form-field ::ng-deep .mat-icon-button {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
 }

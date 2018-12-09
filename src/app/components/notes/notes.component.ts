@@ -5,6 +5,7 @@ import { Note } from '../../models/note';
 import { NoteService } from '../../services/note.service';
 import { Subscription } from 'rxjs';
 import { NoteDetailsComponent } from '../note-details/note-details.component';
+import { Filter } from '../../models/filter';
 
 @Component({
   selector: 'fon-notes',
@@ -101,5 +102,18 @@ export class NotesComponent implements OnInit, OnDestroy {
 
       return false;
     });
+  }
+
+  onFiltersChanged(filters: Filter) {
+    // this.filteredNotes = this.notes.filter(note => {
+    //   const dateCreated = new Date(note.dateCreated);
+    //   if (filters.dateFrom && filters.dateFrom >= dateCreated) {
+    //     if (filters.dateTo && filters.dateTo <= dateCreated) {
+    //       return true;
+    //     }
+    //     return true;
+    //   }
+    //   return false;
+    // });
   }
 }

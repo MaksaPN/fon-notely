@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material';
+import { Filter } from '../../models/filter';
 
 @Component({
   selector: 'fon-filters',
@@ -8,17 +9,26 @@ import { MatDatepickerInputEvent } from '@angular/material';
 })
 export class FiltersComponent implements OnInit {
 
+  @Output() filtersChanged = new EventEmitter<Filter>();
+
+  filters: Filter = {
+    dateFrom: undefined,
+    dateTo: undefined
+  };
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  onDateFromChange(date: MatDatepickerInputEvent<Date>) {
-    console.log(date);
+  onDateFromChange(event: MatDatepickerInputEvent<Date>) {
+    this.filters.dateFrom = event.value;
+    this.filtersChanged.emit(this.filters);
   }
 
-  onDateToChange(date: MatDatepickerInputEvent<Date>) {
-    console.log(date);
+  onDateToChange(event: MatDatepickerInputEvent<Date>) {
+    this.filters.dateTo = event.value;
+    this.filtersChanged.emit(this.filters);
   }
 
 }
