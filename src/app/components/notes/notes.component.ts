@@ -37,6 +37,7 @@ export class NotesComponent implements OnInit, OnDestroy {
       newNote.id = this.notes.length + 1;
       newNote.dateCreated = new Date().toISOString();
       this.notes.push(newNote);
+      this.filteredNotes.push(newNote);
     });
 
     this.noteUpdatedSubscription = this.noteService.noteUpdated.subscribe(updatedNote => {
@@ -68,6 +69,7 @@ export class NotesComponent implements OnInit, OnDestroy {
   onDeleteClicked(note: Note) {
     const noteToDelete = this.notes.filter(n => n.id === note.id)[0];
     this.notes.splice(this.notes.indexOf(noteToDelete), 1);
+    this.filteredNotes.splice(this.notes.indexOf(noteToDelete), 1);
   }
 
   noteDetailsActivated(componentRef: NoteDetailsComponent) {
