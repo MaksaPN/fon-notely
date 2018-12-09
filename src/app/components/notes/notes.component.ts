@@ -14,10 +14,12 @@ import { NoteDetailsComponent } from '../note-details/note-details.component';
 export class NotesComponent implements OnInit, OnDestroy {
 
   notes: Note[] = [];
+  filteredNotes: Note[] = [];
   showBackgroundOverlay = false;
 
   private noteCreatedSubscription: Subscription;
   private noteUpdatedSubscription: Subscription;
+  private searchMadeSubscription: Subscription;
 
   constructor(
     private noteService: NoteService,
@@ -28,6 +30,7 @@ export class NotesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.noteService.getNotes().subscribe(notes => {
       this.notes = notes;
+      this.filteredNotes = notes;
     });
 
     this.noteCreatedSubscription = this.noteService.noteCreated.subscribe(newNote => {
@@ -42,6 +45,10 @@ export class NotesComponent implements OnInit, OnDestroy {
       noteToUpdate.listItems = updatedNote.listItems;
       noteToUpdate.type = updatedNote.type;
       noteToUpdate.dateModified = new Date().toISOString();
+    });
+
+    this.searchMadeSubscription = this.noteService.searchMade.subscribe(searchTerm => {
+      this.search(searchTerm);
     });
   }
 
@@ -71,5 +78,25 @@ export class NotesComponent implements OnInit, OnDestroy {
   noteDetailsDeactivated() {
     document.body.style.overflowY = 'visible';
     this.showBackgroundOverlay = false;
+  }
+
+  search(searchTerm: string) {
+    searchTerm = searchTerm.toLowerCase();
+
+    this.filteredNotes = this.notes.filter(note => {
+      if (note.title && note.title.toLowerCase().indexOf(searchTerm) >= 0) {
+        return true;
+      }
+
+      if (note.content && note.content.toLowerCase().indexOf(searchTerm) >= 0) {
+        return true;
+      }
+
+      if (note.listItems && note.listItems.filter(li => li.content.toLowerCase().indexOf(searchTerm) >= 0).length) {
+        return true;
+      }
+
+      return false;
+    });
   }
 }

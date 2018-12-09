@@ -1,4 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { NoteService } from '../../services/note.service';
 
 @Component({
   selector: 'fon-search',
@@ -8,15 +11,25 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SearchComponent implements OnInit {
 
   searchTerm: string;
-  @Output() search = new EventEmitter<string>();
+  debouncer = new Subject<string>();
 
-  constructor() { }
+  constructor(private noteService: NoteService) { }
 
   ngOnInit() {
+    this.debouncer
+      .pipe(debounceTime(300))
+      .pipe(distinctUntilChanged())
+      .subscribe((value) => {
+        this.noteService.searchMade.next(value);
+      });
   }
 
   onSearchClick() {
-    this.search.emit(this.searchTerm);
+    this.noteService.searchMade.next(this.searchTerm);
+  }
+
+  onSearchInputUpdate(newValue: string) {
+    this.debouncer.next(newValue);
   }
 
 }

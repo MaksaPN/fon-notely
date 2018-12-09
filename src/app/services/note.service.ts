@@ -12,6 +12,7 @@ export class NoteService {
 
   noteCreated = new Subject<Note>();
   noteUpdated = new Subject<Note>();
+  searchMade = new Subject<string>();
 
   constructor(private http: HttpClient) { }
 

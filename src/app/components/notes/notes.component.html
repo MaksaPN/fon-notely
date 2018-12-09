@@ -1,6 +1,6 @@
 <div class="notes-wrapper">
   <fon-note
-    *ngFor="let note of notes" [note]="note"
+    *ngFor="let note of filteredNotes" [note]="note"
     (editClicked)="onEditClicked($event)"
     (deleteClicked)="onDeleteClicked($event)">
   </fon-note>
